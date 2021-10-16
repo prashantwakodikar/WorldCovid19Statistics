@@ -1,0 +1,27 @@
+.home_banner{
+  position: relative;
+  img{
+    width: 100%;
+  }
+  a{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 100%;
+  }
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    h1{
+      color: #fff;
+      text-align: center;
+      background-color: #00000059;
+      padding: 20px 30px;
+    }
+  }
+  
+}

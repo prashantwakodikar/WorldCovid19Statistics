@@ -1,0 +1,20 @@
+<section *ngIf="todayCovidStats" class="todayscovid_wrap">
+    <div class="container">
+        <h2>World COVID-19 Statistics :</h2>
+        <!-- <ul>
+            <li *ngFor="let list of todayCovidStatsobj" class="single_box">
+                <label>{{list[0] | uppercase}} :</label>
+                <span>{{list[1]}}</span>
+            </li>
+        </ul> -->
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+            (init)="slickInit($event)" (breakpoint)="breakpoint($event)">
+            <div ngxSlickItem *ngFor="let list of todayCovidStatsobj" class="slide">
+                <div class="single_box">
+                    <label>{{list[0] | uppercase}} :</label>
+                    <span>{{list[1]}}</span>
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</section>

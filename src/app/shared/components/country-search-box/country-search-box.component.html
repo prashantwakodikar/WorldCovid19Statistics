@@ -1,0 +1,14 @@
+<div class="ng-autocomplete" *ngIf="covidCountryObj">
+    <ng-autocomplete [data]="covidCountryObj" [searchKeyword]="keyword" (selected)='selectEvent($event)'
+        (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate" placeholder="Enter the Country Name">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.country"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+    </ng-template>
+</div>

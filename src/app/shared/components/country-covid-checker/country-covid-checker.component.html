@@ -1,0 +1,60 @@
+<section class="covidChecker" id="covidChecker">
+    <div class="container">
+        <div>
+            <h2>Country Wise COVID-19 Statistics</h2>
+            <form #covidChecker="ngForm" novalidate>
+                <select (change)="onCountryChange(selectCountry)" name="selectCountry" #selectCountry="ngModel"
+                    [(ngModel)]="countrydropdown">
+                    <option [ngValue]=null disabled>Select Country</option>
+                    <option *ngFor="let item of covidCountryObj" [ngValue]="item.country">{{item.country}}</option>
+                </select>
+                <span class="seperator">OR</span>
+                <!-- <input type="search" placeholder="Search Country"> -->
+                <app-country-search-box (searchDataEvent)="singleCountryObj=$event"></app-country-search-box>
+            </form>
+        </div>
+        <app-scroll-down-arrow></app-scroll-down-arrow>
+    </div>
+</section>
+<section class="countryWrap" *ngIf="singleCountryObj">
+    <div class="container">
+        <h4>{{singleCountryObj.country | uppercase}} - Latest COVID-19 Report</h4>
+        <div class="row">
+            <div class="logo">
+                <img  src="{{singleCountryObj.countryInfo.flag}}">
+            </div>
+            <div class="inner">
+                <div>
+                    <label>Country : </label>
+                    <span>{{singleCountryObj.country}}</span>
+                </div>
+                <div>
+                    <label>Continent : </label>
+                    <span>{{singleCountryObj.continent}}</span>
+                </div>
+                <div>
+                    <label>Population : </label>
+                    <span>{{singleCountryObj.population}}</span>
+                </div>
+                <div>
+                    <label>Today Cases : </label>
+                    <span>{{singleCountryObj.todayCases}}</span>
+                </div>
+                <div>
+                    <label>Active Cases : </label>
+                    <span>{{singleCountryObj.active}}</span>
+                </div>
+                <div>
+                    <label>Recovered : </label>
+                    <span>{{singleCountryObj.recovered}}</span>
+                </div>
+                <div>
+                    <label>Deaths : </label>
+                    <span>{{singleCountryObj.deaths}}</span>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
